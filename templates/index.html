@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart FAQ Chatbot System</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>🤖 Smart FAQ Chatbot</h1>
+            <p>Ask me anything! I'll search my FAQ database for answers.</p>
+        </div>
+
+        <!-- Main Chat Container -->
+        <div class="chat-wrapper">
+            <!-- Chat Messages Area -->
+            <div class="chat-box" id="chatBox">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        👋 Hello! I'm your Smart FAQ Chatbot. Ask me any question and I'll try to help!
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <!-- Text Input Field -->
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="Type your question here..." 
+                        class="message-input"
+                    >
+                    <!-- Send Button -->
+                    <button id="sendBtn" class="send-button">
+                        Send 📤
+                    </button>
+                </div>
+                <!-- Status Message -->
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+        </div>
+
+        <!-- Admin Panel Section (Basic) -->
+        <div class="admin-panel">
+            <h3>📋 Admin Panel</h3>
+            <div class="admin-content">
+                <div class="admin-section">
+                    <h4>Add New Answer</h4>
+                    <input 
+                        type="text" 
+                        id="adminQuestion" 
+                        placeholder="Enter question" 
+                        class="admin-input"
+                    >
+                    <textarea 
+                        id="adminAnswer" 
+                        placeholder="Enter answer" 
+                        class="admin-input admin-textarea"
+                    ></textarea>
+                    <button id="addAnswerBtn" class="admin-button">
+                        Add to FAQ ➕
+                    </button>
+                </div>
+
+                <div class="admin-section">
+                    <h4>Unknown Questions 🤔</h4>
+                    <div id="unknownList" class="admin-list">
+                        <p>Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Built with Python Flask & SQLite | Beginner-Friendly Project</p>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

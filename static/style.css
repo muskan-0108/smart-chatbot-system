@@ -1,0 +1,364 @@
+/* 
+   Smart FAQ Chatbot - Stylesheet
+   This file contains all the styling for the chatbot interface
+*/
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* ===== HEADER STYLES ===== */
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    padding: 10px 0;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.95;
+}
+
+/* ===== CHAT WRAPPER ===== */
+.chat-wrapper {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* ===== CHAT BOX (MESSAGES AREA) ===== */
+.chat-box {
+    flex: 1;
+    min-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Individual Message Styling */
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    animation: slideIn 0.3s ease-in-out;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+/* Animation for new messages */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* User Messages (Right side, blue) */
+.user-message {
+    align-items: flex-end;
+}
+
+.user-message .message-content {
+    background: #667eea;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 15px 15px 0px 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    display: block;
+}
+
+/* Bot Messages (Left side, gray) */
+.bot-message {
+    align-items: flex-start;
+}
+
+.bot-message .message-content {
+    background: #e9ecef;
+    color: #333;
+    padding: 12px 15px;
+    border-radius: 15px 15px 15px 0px;
+    max-width: 70%;
+    word-wrap: break-word;
+    display: block;
+}
+
+/* Message Timestamp */
+.message-time {
+    font-size: 0.75em;
+    color: #999;
+    margin-top: 5px;
+    padding: 0 5px;
+}
+
+/* ===== INPUT SECTION ===== */
+.input-section {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e9ecef;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Message Input Field */
+.message-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.message-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Send Button */
+.send-button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 600;
+}
+
+.send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.send-button:active {
+    transform: translateY(0);
+}
+
+/* Status Message */
+.status-message {
+    text-align: center;
+    font-size: 0.9em;
+    color: #764ba2;
+    min-height: 20px;
+}
+
+.status-message.error {
+    color: #e74c3c;
+}
+
+.status-message.success {
+    color: #27ae60;
+}
+
+/* ===== ADMIN PANEL ===== */
+.admin-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.admin-panel h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.admin-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Admin Section */
+.admin-section h4 {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Admin Input Fields */
+.admin-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.admin-input:focus {
+    border-color: #667eea;
+}
+
+.admin-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Admin Button */
+.admin-button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.admin-button:hover {
+    background: #764ba2;
+}
+
+/* Admin List */
+.admin-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.admin-list-item {
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #333;
+    border-left: 3px solid #667eea;
+}
+
+.admin-list-item:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    color: white;
+    font-size: 0.9em;
+    opacity: 0.9;
+    padding: 10px 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+    .container {
+        height: auto;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header p {
+        font-size: 0.95em;
+    }
+
+    .chat-wrapper {
+        height: 400px;
+    }
+
+    .user-message .message-content,
+    .bot-message .message-content {
+        max-width: 85%;
+    }
+
+    .admin-content {
+        grid-template-columns: 1fr;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    .send-button {
+        width: 100%;
+    }
+
+    .admin-button {
+        width: 100%;
+    }
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+.chat-box::-webkit-scrollbar {
+    width: 12px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+    min-height: 40px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+    cursor: pointer;
+}
